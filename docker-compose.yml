@@ -1,0 +1,11 @@
+version: "2"
+network_mode: "bridge"
+services:
+    gitlab:
+        image: 'gitlab/gitlab-ce:latest'
+        links:
+            - bamboo
+    bamboo:
+        image: "redmatter/docker-bamboo"
+        links:
+            - gitlab
